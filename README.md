@@ -4,13 +4,19 @@ Simple frontend-only website for counting down to a target datetime.
 
 ## Countdown target env var
 
-Set this at deploy/build time:
+Create `.env` from the example file:
 
 ```bash
+cp .env.example .env
+```
+
+Then set the target datetime in `.env`:
+
+```env
 BUN_PUBLIC_COUNTDOWN_TARGET=2026-03-25T18:23:52+03:00
 ```
 
-The UI reads that value and shows:
+The UI reads this value and shows:
 - hours
 - minutes
 - seconds
