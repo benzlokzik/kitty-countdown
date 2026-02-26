@@ -1,6 +1,20 @@
 # Kitty Countdown
 
-Simple frontend-only website for counting days until a date.
+Simple frontend-only website for counting down to a target datetime.
+
+## Countdown target env var
+
+Set this at deploy/build time:
+
+```bash
+BUN_PUBLIC_COUNTDOWN_TARGET=2026-03-25T18:23:52+03:00
+```
+
+The UI reads that value and shows:
+- hours
+- minutes
+- seconds
+- milliseconds
 
 ## Commands
 
