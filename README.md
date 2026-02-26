@@ -1,21 +1,45 @@
-# bun-react-template
+# Kitty Countdown
 
-To install dependencies:
+Simple frontend-only website for counting days until a date.
+
+## Commands
+
+Install dependencies:
 
 ```bash
 bun install
 ```
 
-To start a development server:
+Run dev server:
 
 ```bash
 bun dev
 ```
 
-To run for production:
+Build:
 
 ```bash
-bun start
+bun run check
 ```
 
-This project was created using `bun init` in bun v1.3.4. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+## Pre-commit
+
+Install `pre-commit` (example with Homebrew):
+
+```bash
+brew install pre-commit
+```
+
+Install hooks in this repo:
+
+```bash
+pre-commit install
+```
+
+Run hooks manually anytime:
+
+```bash
+pre-commit run --all-files
+```
+
+The configured hook runs `bun run check` before each commit.
