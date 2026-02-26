@@ -20,17 +20,7 @@ function parseTargetDate(value: string): Date | null {
 }
 
 function readTargetEnv(): string | undefined {
-  const fromImportMeta = (import.meta as ImportMeta & { env?: Record<string, string | undefined> }).env
-    ?.BUN_PUBLIC_COUNTDOWN_TARGET;
-  if (fromImportMeta) {
-    return fromImportMeta;
-  }
-
-  if (typeof process !== "undefined") {
-    return process.env.BUN_PUBLIC_COUNTDOWN_TARGET;
-  }
-
-  return undefined;
+  return process.env.BUN_PUBLIC_COUNTDOWN_TARGET;
 }
 
 function splitDuration(totalMs: number): {
