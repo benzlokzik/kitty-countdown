@@ -79,45 +79,36 @@ h1 {
   line-height: 1;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 700;
-  color: var(--text-soft);
-}
-
-input[type="date"] {
-  width: 100%;
-  border: 2px solid var(--pink-soft);
-  background: #fff;
-  color: var(--text-main);
-  border-radius: 16px;
-  padding: 12px 14px;
-  font-size: 1rem;
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-input[type="date"]:focus {
-  border-color: var(--pink-strong);
-  box-shadow: 0 0 0 4px rgba(255, 95, 152, 0.2);
-}
-
 .counter {
   margin: 18px 0 6px;
-  padding: 16px 10px;
+  padding: 16px 12px;
   font-weight: 900;
-  font-size: clamp(1.35rem, 5vw, 1.8rem);
+  font-size: clamp(1.3rem, 6vw, 2rem);
+  letter-spacing: 0.04em;
+  font-family: "Courier New", monospace;
   border-radius: 18px;
   color: #fff;
   background: linear-gradient(135deg, #ff5f98, #ff83b2);
+  overflow-wrap: anywhere;
 }
 
 .target-date {
-  margin: 0;
+  margin: 0 0 8px;
   color: var(--text-soft);
   font-weight: 700;
+}
+
+.timer-state {
+  margin: 0;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.timer-state code {
+  background: #ffe7f1;
+  border-radius: 8px;
+  padding: 2px 6px;
+  font-family: "Courier New", monospace;
 }
 
 .heart {
