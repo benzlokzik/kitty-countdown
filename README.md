@@ -22,7 +22,8 @@ The static frontend reads this value at build time and shows:
 - seconds
 - milliseconds
 
-After changing `.env`, restart `bun dev` or rebuild.
+After changing `.env`, restart `bun dev` or run `bun run build` again.
+For static hosting, `.env` is not read at runtime from `dist`; values are baked in during build.
 
 ## Commands
 
