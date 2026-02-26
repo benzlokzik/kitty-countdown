@@ -160,7 +160,6 @@ export function App() {
           </p>
         )}
 
-        <p className="target-date">Example: 2026-03-25T18:23:52+03:00</p>
       </section>
     </main>
   );
