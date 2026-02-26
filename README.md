@@ -22,6 +22,8 @@ The UI reads this value and shows:
 - seconds
 - milliseconds
 
+If `bun dev` is already running, restart it after changing `.env`.
+
 ## Commands
 
 Install dependencies:
