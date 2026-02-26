@@ -92,6 +92,11 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.counter-negative {
+  background: linear-gradient(135deg, #ff4890, #ff2e78);
+  box-shadow: 0 0 0 4px rgba(255, 72, 144, 0.25);
+}
+
 .target-date {
   margin: 0 0 8px;
   color: var(--text-soft);
@@ -109,6 +114,12 @@ h1 {
   border-radius: 8px;
   padding: 2px 6px;
   font-family: "Courier New", monospace;
+}
+
+.easter-egg {
+  margin: 6px 0 0;
+  color: #c6286f;
+  font-weight: 700;
 }
 
 .heart {

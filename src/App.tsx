@@ -92,6 +92,7 @@ export function App() {
   }, []);
 
   const diffMs = targetConfig.kind === "ok" ? targetConfig.date.getTime() - nowMs : null;
+  const isNegative = diffMs !== null && diffMs < 0;
   const formattedTime = useMemo(() => {
     if (diffMs === null) {
       return "--:--:--.---";
@@ -112,11 +113,12 @@ export function App() {
         <p className="kitty-line">(=^.^=) kitty timer</p>
         <h1>Countdown</h1>
 
-        <p className="counter">{formattedTime}</p>
+        <p className={`counter ${isNegative ? "counter-negative" : ""}`}>{formattedTime}</p>
         {targetConfig.kind === "ok" && (
           <>
             <p className="target-date">{formatTargetDate(targetConfig.date)}</p>
             <p className="timer-state">{diffMs !== null && diffMs >= 0 ? "left" : "ago"}</p>
+            {isNegative && <p className="easter-egg">kitty time warp unlocked (=^-ω-^=)</p>}
           </>
         )}
 
