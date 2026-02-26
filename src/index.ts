@@ -6,6 +6,14 @@ const server = serve({
     // Serve index.html for all unmatched routes.
     "/*": index,
 
+    "/api/countdown-target": {
+      async GET() {
+        return Response.json({
+          target: process.env.BUN_PUBLIC_COUNTDOWN_TARGET ?? null,
+        });
+      },
+    },
+
     "/api/hello": {
       async GET(req) {
         return Response.json({

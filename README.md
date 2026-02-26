@@ -16,7 +16,7 @@ Then set the target datetime in `.env`:
 BUN_PUBLIC_COUNTDOWN_TARGET=2026-03-25T18:23:52+03:00
 ```
 
-The UI reads this value and shows:
+The app reads this value from Bun runtime and shows:
 - hours
 - minutes
 - seconds

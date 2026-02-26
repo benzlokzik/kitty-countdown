@@ -67,8 +67,7 @@ type TargetConfig =
   | { kind: "invalid"; raw: string }
   | { kind: "ok"; raw: string; date: Date };
 
-function resolveTargetConfig(): TargetConfig {
-  const raw = readTargetEnv();
+function resolveTargetConfig(raw: string | undefined): TargetConfig {
   if (!raw) {
     return { kind: "missing" };
   }
@@ -81,15 +80,42 @@ function resolveTargetConfig(): TargetConfig {
   return { kind: "ok", raw, date };
 }
 
-const targetConfig = resolveTargetConfig();
-
 export function App() {
   const [nowMs, setNowMs] = useState(() => Date.now());
+  const [targetConfig, setTargetConfig] = useState<TargetConfig>(() => resolveTargetConfig(readTargetEnv()));
 
   useEffect(() => {
     const timer = window.setInterval(() => setNowMs(Date.now()), 16);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (targetConfig.kind !== "missing") {
+      return;
+    }
+
+    let cancelled = false;
+    const loadTargetFromApi = async () => {
+      try {
+        const response = await fetch("/api/countdown-target", { cache: "no-store" });
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as { target?: string | null };
+        if (!cancelled) {
+          setTargetConfig(resolveTargetConfig(data.target ?? undefined));
+        }
+      } catch {
+        // Keep UI in "missing" state if no runtime config endpoint is available.
+      }
+    };
+
+    void loadTargetFromApi();
+    return () => {
+      cancelled = true;
+    };
+  }, [targetConfig.kind]);
 
   const diffMs = targetConfig.kind === "ok" ? targetConfig.date.getTime() - nowMs : null;
   const isNegative = diffMs !== null && diffMs < 0;
