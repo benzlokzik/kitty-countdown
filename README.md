@@ -2,6 +2,8 @@
 
 Simple frontend-only website for counting down to a target datetime.
 
+<img width="2538" height="1772" alt="screenshot" src="https://github.com/user-attachments/assets/7cb6588d-cb6a-427a-8258-28292468a352" />
+
 ## Countdown target env var
 
 Create `.env` from the example file:
